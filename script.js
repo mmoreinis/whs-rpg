@@ -24,7 +24,7 @@ const monsterNameText = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const myObjects = document.querySelector("#stats li:nth-child(4)"); 
 const myWeapons = document.querySelector("#stats li:nth-child(5)");
-
+const stats = document.querySelector("#stats li:nth-child(5)");
 
 function showObjects() {
 	showInventory(myObjects, objects, "objects")
@@ -33,7 +33,11 @@ function showObjects() {
 function showInventory(container, items, listName){
 	console.log(myObjects)
 	let inventoryList = document.createElement("ul");
-	inventoryList.id = listName
+	inventoryList.id = listName;
+	myObjects.addEventListener('click', (event) => {
+		inventoryList.style.display = "none";
+		
+	});
 	for (let item = 0; item < items.length; item++){
 		let newItem = document.createElement("li");
 		newItem.innerHTML = items[item];
