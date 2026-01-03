@@ -53,7 +53,6 @@ function buyHealth() {
 
 }
 
-
 function sellWeapon() {
 	if (inventory.length > 1) {
 		gold += 15;
@@ -65,6 +64,8 @@ function sellWeapon() {
     	text.innerText = "Don't sell your only weapon!";
   	}
 }
+
+/* Does this below go in Location.js or stay here? */
 
 function fightSlime() {
 	fighting = 0;
@@ -79,62 +80,6 @@ function fightBeast() {
 function fightDragon() {
 	fighting = 2;
 	goFight();
-}
-
-function goFight() {
-    update(locations[3]);
-    monsterHealth = monsters[fighting].health;
-    monsterStats.style.display = "block";
-    monsterNameText.innerText = monsters[fighting].name;
-	monsterHealthText.innerText = monsterHealth;
-}
-
-function attack() {
-    text.innerText = "The " + monsters[fighting].name + " attacks.";
-    text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
-    
-    if (isMonsterHit()) {
-        health -= getMonsterAttackValue(monsters[fighting].level);
-    } else {
-		text.innerText += " You miss.";
-	}
-    
-    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
-	healthText.innerText = health;
-	monsterHealthText.innerText = monsterHealth;   
-	if (health <= 0) {
-		lose();
-	} else if (monsterHealth <= 0) {
-		fighting === 2 ? winGame() : defeatMonster();
-	}
-
-	if (Math.random() <= .1 && inventory.length !== 1) {
-        text.innerText += " Your " + inventory.pop() + " breaks.";
-        currentWeapon--;
-	}
-}
-
-function getMonsterAttackValue(level) {
-    let hit = (level * 5) - (Math.floor(Math.random() * xp));
-    console.log(hit);
-    return hit;
-}
-
-function isMonsterHit() {
-	return Math.random() > .2 || health < 20;
-}
-
-
-function dodge() {
-    text.innerText = "You dodge the attack from the " + monsters[fighting].name + ".";
-}
-
-function defeatMonster() {
-    gold += Math.floor(monsters[fighting].level * 6.7)
-    xp += monsters[fighting].level;
-    goldText.innerText = gold;
-	xpText.innerText = xp;
-    update(locations[4]);
 }
 
 function lose() {
