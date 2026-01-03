@@ -1,1 +1,1 @@
-/* store actions constructor and all actions here */
+/* store actions constructor and all action objects here */
