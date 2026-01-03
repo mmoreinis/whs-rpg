@@ -6,12 +6,20 @@ class Player {
     this.gold = 50;
     this.health = 100;
     //this.charName = prompt("Enter your character name:");
-  //  let img = prompt("Enter your character image URL (http(s)://...):");
-  this.charName="Megan";
+    //  let img = prompt("Enter your character image URL (http(s)://...):");
+    this.charName="Megan";
     this.image = "https://live.staticflickr.com/7497/15777223905_56fc88d315_b.jpg";
 	this.currentWeapon = 0;
 	this.buyWeapon = this.buyWeapon.bind(this); // ← bind once so button knows which player to use
 	this.weapons = [0];
+  }
+
+  getCurrentWeapon(){
+    return allWeapons[this.currentWeapon];
+  }
+
+   setWeaponsLoss(){
+      return allWeapons[this.weapons.pop()].name;
   }
 
   buyWeapon() {
