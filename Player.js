@@ -12,11 +12,21 @@ class Player {
 	this.currentWeapon = 0;
 	this.buyWeapon = this.buyWeapon.bind(this); // ← bind once so button knows which player to use
 	this.weapons = [0];
+    this.locations = [0];
+    this.currentLocation = 0;
+	this.setLocation = this.setLocation.bind(this);
   }
+
+  setLocation(index){
+    this.currentLocation = index;
+    console.log("player is at " + locations[index].name);
+  }
+
 
   getCurrentWeapon(){
     return allWeapons[this.currentWeapon];
   }
+
 
    setWeaponsLoss(){
       return allWeapons[this.weapons.pop()].name;
