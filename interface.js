@@ -26,12 +26,10 @@ function setUp(){
 function showObjects() {
 	showInventory(myObjects, objects, "objects");
 }
-
 function showName(){
 	document.getElementById("playerName").innerHTML=player.charName;
 	document.getElementById("picture").innerHTML="<img src=\""+ player.image+"\">";
 }
-
 function showWeapons(){
 	console.log(currentWeapon)
 	showInventory(myWeapons, buildWeapons(), "weapons")
@@ -40,15 +38,33 @@ function showPages(){//working on this//
 	document.getElementById("main").style.display="block";
 	document.getElementById("admin").style.display="none";
 	document.getElementById("player").style.display="none";
-	let pages=["main", "admin", "player"];
+	//let pages=["main", "admin", "player"];
+
+	let pages=[["main", goMain],["admin", goAdmin],["player", goPlayer]];
 
 	for (let i = 0; i < pages.length; i++){
 		let newItem = document.createElement("li");
-		newItem.textContent = pages[i];
+		newItem.textContent = pages[i][0];
+		newItem.addEventListener("click", pages[i][1] )
 		go.appendChild(newItem);
 	}
 	go.style.display="none";
 	goShow.addEventListener("click" , showGo);
+}
+function goMain(){
+	document.getElementById("main").style.display="block";
+	document.getElementById("admin").style.display="none";
+	document.getElementById("player").style.display="none";
+}
+function goPlayer(){
+	document.getElementById("main").style.display="none";
+	document.getElementById("admin").style.display="none";
+	document.getElementById("player").style.display="block";
+}
+function goAdmin(){
+document.getElementById("main").style.display="none";
+	document.getElementById("admin").style.display="block";
+	document.getElementById("player").style.display="none";
 }
 function showGo(){
 	go.style.display="block";

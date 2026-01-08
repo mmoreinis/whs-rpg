@@ -154,7 +154,8 @@ transition: 0.3s;
   
 }
 #go{
-   position:absolute;
+  position:absolute;
   left:260px;
   display:none;
+  background-color: white;
 }
