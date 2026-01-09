@@ -25,8 +25,9 @@ body {
   margin-right:15px;
   text-align:center;
 }
-#game {
-  width: 800px;
+
+#game, #navCross {
+  width: 600px;
   max-height: 400px;
   background-color: lightgray;
   color: white;
@@ -35,6 +36,50 @@ body {
   float:left;
 }
 
+#navCross {
+  width: 100px;
+  margin-right: 8px;
+  border: 5px solid lightgray;
+  background: darkgray;
+  background-image: url('dcross.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 28px;
+}
+
+#navCross div:nth-child(4){
+  float:right;
+}
+#navCross div:nth-child(3){
+  float:left;
+}
+#navCross div:nth-child(5), #navCross div:nth-child(2){
+  clear:both;
+  text-align:center;
+}
+#navCross div{
+  margin-bottom: 8px;
+  border: 1px solid white;
+  padding: 2px; 
+  background-color:rgba(169,169,169,0.5);
+}
+#navCross div:hover{
+  background-color:rgb(207, 198, 148);
+  transition: 0.5s;
+}
+
+#navCross div:first-child {
+background-color: white;
+border: 1px solid black;
+padding: 2px;
+color: black;
+text-align:center;
+margin-bottom: 10px;
+}
+
+#navCross div:first-child:hover {
+background-color: white;
+}
 #controls {
   border: 1px black solid;
   padding: 5px;
