@@ -27,6 +27,13 @@ class Player {
     return allWeapons[this.currentWeapon];
   }
 
+  getCurrentLocation(){
+    return this.currentLocation;
+  }
+
+  getCurrentCoords(){
+    	return locations[this.currentLocation].coords.toString();
+  }
 
    setWeaponsLoss(){
       return allWeapons[this.weapons.pop()].name;

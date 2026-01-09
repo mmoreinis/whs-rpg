@@ -16,6 +16,32 @@ const myWeapons = document.querySelector("#stats li:nth-child(5)");
 const stats = document.querySelector("#stats li:nth-child(5)");
 const infoBox = document.getElementById('infoBox');
 
+setUp();
+
+function setUp() {
+	createNavCross();
+}
+
+function createNavCross() {
+	document.getElementById("game");
+	let navCross = document.createElement("div");
+	game.appendChild(navCross);
+	navCross.id = "navCross";
+	document.getElementById("navCross");
+	let navBox;
+	for(let i = 0; i < 4; i++){
+		navBox = document.createElement("div");
+		navBox.id = "nav" + i;
+		navCross.appendChild(navBox);
+	}
+	buttonLabels = ["top", "right", "bottom", "left"];
+
+	navButtons = [];
+	console.log(WHS.getName(0))
+	console.log(player.getCurrentLocation());
+	console.log(player.getCurrentCoords());
+}
+
 function showObjects() {
 	showInventory(myObjects, objects, "objects");
 }
@@ -60,17 +86,6 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function goStore() {
-    update(locations[1]);
-}
-
-function goTown() {
-    update(locations[0]);
-}
-
-function goCave() {
-    update(locations[2]);
-}
 function update(location) {
     monsterStats.style.display = "none";
 	button1.innerText = location["button text"][0];
