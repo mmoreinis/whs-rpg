@@ -12,6 +12,7 @@ body {
   width:200px;
   border-style:solid;
 }
+
 #gameBoard{
   width: 1100px;
   margin:auto;
@@ -25,6 +26,7 @@ body {
   margin-right:15px;
   text-align:center;
 }
+
 #game {
   width: 800px;
   max-height: 400px;
@@ -129,4 +131,47 @@ transition: 0.3s;
 }
 .hidden {
   display: none;
+}
+
+/* Player and Admin pages */
+
+#main, #player{
+  display:none;
+}
+#controls{
+  position:relative;
+}
+#go li{
+  border-radius:20px;
+  padding: 2px;
+  background-color: white;
+  display:block;
+  width:50px;
+  text-align: center;
+}
+#go{
+  position:absolute;
+  left:260px;
+  display:none;
+  background-color: white;
+}
+
+#playerPage {
+  clear: both;
+  background-color: rgb(202, 177, 130);
+  border: 3px dashed rgb(148, 129, 85);;
+  margin-top: 20px;
+  padding: 20px;
+   text-align: center;
+}
+
+#playerPicture {
+  border: 3px dashed rgb(148, 129, 85);
+  width:300px;
+}
+#playerPageName{
+  font-size:40px;
+}
+#player{
+  height:1000px;
 }
