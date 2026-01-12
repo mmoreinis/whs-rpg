@@ -21,6 +21,7 @@ const goShow= document.getElementById("goShow");
 setUp();
 function setUp(){
 	go.id="go";
+	
 	goButtons();
 	showPages();
   createNavCross();
