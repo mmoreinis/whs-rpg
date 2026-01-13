@@ -25,15 +25,111 @@ body {
   margin-right:15px;
   text-align:center;
 }
-
-#game, #navCross {
-  width: 600px;
+#game {
+  width: 800px;
   max-height: 400px;
   background-color: lightgray;
   color: white;
   margin: 0 auto;
   padding: 10px;
   float:left;
+}
+
+#controls {
+  border: 1px black solid;
+  padding: 5px;
+}
+
+#stats {
+  border: 1px black solid;
+  color: black;
+  padding: 5px;
+}
+
+#monsterStats {
+  display: none;
+  border: 1px black solid;
+  color: white;
+  padding: 5px;
+  background-color: red;
+}
+
+.stat {
+  padding-right: 10px;
+}
+
+a{
+  color: white;
+}
+
+#stats ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#stats ul ul{
+  margin-left: -50px;
+}
+
+#stats li{
+  display: inline-block;
+}
+
+#stats li li{
+  display: block;
+}
+
+#stats li > *:nth-child(1){
+  font-weight: bolder;
+  padding: 0.5em;
+}
+
+#stats li button:nth-child(1){
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid gray;
+  margin-left: 0.5em;
+  border-radius: 5px;
+}
+
+#stats li:nth-child(4), #stats li:nth-child(5){
+  display: block;
+  float: right;
+}
+
+#stats li button:nth-child(1):hover{
+background-color: white;
+transition: 0.3s;
+}
+
+#objects{
+  background-color: white;
+  width: 55px;
+  
+}
+
+#objects li{
+  padding: 0 .5em;
+  margin: none;
+  background-color: white;
+}
+
+#weapons{
+  background-color: white;
+  width: 70px;
+  position: relative;
+  left:110px;
+  
+}
+
+#weapons li{
+  padding: 0 .5em;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
 }
 
 #navCross {

@@ -27,12 +27,11 @@ function createNavCross() {
 	let board = document.getElementById("gameBoard");
 	const firstChild = board.firstElementChild;
 	let navCross = document.createElement("div");
+	game.appendChild(navCross);
 	navCross.id = "navCross";
-	board.insertBefore(navCross, firstChild.nextElementSibling);
-	document.getElementById("navCross")
-	let navBox;	
-	buttonLabels = ["Navigation", "forward", "right", "left", "back"];
-	for(let i = 0; i < 5; i++){
+	document.getElementById("navCross");
+	let navBox;
+	for(let i = 0; i < 4; i++){
 		navBox = document.createElement("div");
 		navBox.id = "nav" + i;
 		navBox.innerHTML = buttonLabels[i];
@@ -43,9 +42,8 @@ function createNavCross() {
 		navBox.classList.add('clickable');
 		}
 	navCross.appendChild(navBox);
-}
-
-
+	}
+	buttonLabels = ["top", "right", "bottom", "left"];
 	navButtons = [];
 	console.log(WHS.getName(0))
 	console.log(player.getCurrentLocation());
