@@ -27,13 +27,15 @@ body {
   text-align:center;
 }
 
+#game,#navCross{
+  display:inline-block;
+}
 #game {
   width: 800px;
   background-color: lightgray;
   color: white;
   margin: 0 auto;
   padding: 10px;
-  display:inline-block;
 }
 
 #navCross {

@@ -48,7 +48,7 @@ function createNavCross() {
    const firstChild = board.firstElementChild;
    let navCross = document.createElement("div");
    navCross.id = "navCross";
-   board.insertBefore(navCross, firstChild.nextElementSibling);
+   board.prepend(navCross);
    document.getElementById("navCross")
    let navBox;
    buttonLabels = ["Navigation", "forward", "right", "left", "back"];
