@@ -35,8 +35,10 @@ function goButtons() {
    ];
    for (let i = 0; i < pages.length; i++) {
       let newItem = document.createElement("li");
-      newItem.textContent = pages[i][0];
-      newItem.addEventListener("click", pages[i][1])
+	  let newLink = document.createElement("a");
+      newLink.textContent = pages[i][0];
+      newLink.addEventListener("click", pages[i][1]);
+	  newItem.appendChild(newLink);
       go.appendChild(newItem);
    }
 }

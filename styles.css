@@ -13,7 +13,7 @@ body {
   border-style:solid;
 }
 
-#gameBoard{
+#main{
   width: 1100px;
   margin:auto;
 }
@@ -188,13 +188,39 @@ transition: 0.3s;
 #controls{
   position:relative;
 }
-#go li{
-  border-radius:20px;
+#go {
+  list-style-type:none;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+#go li {
+  border-radius:2px;
   padding: 2px;
   background-color: white;
   display:block;
-  width:50px;
+  width:60px;
   text-align: center;
+}
+
+#go li:hover {
+  background:gray;
+}
+
+#go li:active {
+  background:yellow;
+}
+
+#go li a {
+  color:black;
+}
+
+#go li a:hover {
+  color:yellow;
+}
+
+#go li a:active {
+  color:blue;
 }
 #go{
   position:absolute;
