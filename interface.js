@@ -42,6 +42,29 @@ function goButtons() {
       go.appendChild(newItem);
    }
 }
+function createActionButtons() {
+   let locationNow = player.currentLocation;
+   let possibles =  WHSchoices.actions[locationNow].coords; //working here
+   const firstChild = board.firstElementChild;
+   let navCross = document.createElement("div");
+   navCross.id = "navCross";
+   board.prepend(navCross);
+   document.getElementById("navCross")
+   let navBox;
+   buttonLabels = ["Navigation", "forward", "right", "left", "back"];
+   for (let i = 0; i < 5; i++) {
+      navBox = document.createElement("div");
+      navBox.id = "nav" + i;
+      navBox.innerHTML = buttonLabels[i];
+      if (i > 0 && possibles[i - 1] > 0) {
+         navBox.addEventListener("click", (event) => {
+            update(WHS.Locations[possibles[i - 1]]);
+         });
+         navBox.classList.add('clickable');
+      }
+      navCross.appendChild(navBox);
+   }
+}
 
 function createNavCross() {
    let possibles = getNavLocations();
