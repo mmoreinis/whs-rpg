@@ -79,6 +79,13 @@ const locations = [
 		// "button text": ["Attack", "Dodge", "Run"],
 		// "button functions": [attack, dodge, goTown],
 		// text: "You're attacked as you enter the library."
+	},
+	{
+		index: 8,
+	 	name: "Cafeteria",
+		coords: [1,-1],
+		text: "You enter the cafeteria. There are many smells coming from the lunch line. There's a noisy table and a quiet student sitting alone.",
+		buttons : ["Eat Lunch", "Join Group", "Approach Student"]
 	}
 ]
 	// {
