@@ -19,7 +19,7 @@ class Player {
 
   setLocation(index){
     this.currentLocation = index;
-    console.log("player is at " + locations[index].name);
+    console.log("player is at " + WHS.locations[0].name);
   }
 
 

@@ -18,13 +18,25 @@ const stats = document.querySelector("#stats li:nth-child(6)");
 const infoBox = document.getElementById('infoBox');
 const goShow = document.getElementById("goShow");
 const board = document.getElementById("main");
+const WHS = new Place('WHS');
 // setup functions
 setUp();
 
 function setUp() {
+   
+   locations.forEach(data => {
+      const newPlace = new Location(data.index, data.name, data.coords);
+      WHS.addLocation(newPlace);
+   });
+
+   console.log("WHS is created!");
+   let pointer = WHS.locations[0]
+   console.log("First one: " + JSON.stringify(WHS.locations[0].name));
    goButtons();
    showPages();
    createNavCross();
+   console.log("updating for " + JSON.stringify(WHS.locations[0].name));
+   update(pointer);
 }
 
 function goButtons() {
@@ -211,18 +223,4 @@ function buildWeapons() {
 }
 
 // initialize buttons
-button1.onclick = goStore;
-button2.onclick = goCave;
-button3.onclick = fightDragon;
 
-function update(location) {
-   monsterStats.style.display = "none";
-   button1.innerText = location["button text"][0];
-   button2.innerText = location["button text"][1];
-   button3.innerText = location["button text"][2];
-   button1.onclick = location["button functions"][0];
-   button2.onclick = location["button functions"][1];
-   button3.onclick = location["button functions"][2];
-   text.innerText = location.text;
-   player.setLocation(locations.indexOf(location));
-}
