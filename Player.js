@@ -13,13 +13,14 @@ class Player {
 	this.buyWeapon = this.buyWeapon.bind(this); // ← bind once so button knows which player to use
 	this.weapons = [0];
     this.locations = [0];
-    this.currentLocation = 0;
+    this.currentLocation = -1;
 	this.setLocation = this.setLocation.bind(this);
   }
 
   setLocation(index){
     this.currentLocation = index;
-    console.log("player is at " + locations[index].name);
+    let newLocation = WHS.locations.find(location => location.index === index);
+    console.log("player is at " + newLocation);
   }
 
 
@@ -32,7 +33,13 @@ class Player {
   }
 
   getCurrentCoords(){
-    	return locations[this.currentLocation].coords.toString();
+     let locationMatch = WHS.locations.find(location => location.getIndex() === this.currentLocation);
+     return locationMatch.getCoords();
+  }
+
+  getCurrentLocationObject(){
+    let currentLocationObject = WHS.locations.find(location => location.index === this.currentLocation);
+    return currentLocationObject;
   }
 
    setWeaponsLoss(){
@@ -63,6 +70,26 @@ class Player {
 	}
 
 }
+
+const allWeapons = [
+	{
+		name: "stick",
+		power: 5
+	},
+	{
+		name: "dagger",
+		power: 30
+	},
+	{
+		name: "claw hammer",
+		power: 50
+	},
+	{
+		name: "sword",
+		power: 100
+	}
+];
+
 
 /* Need OOP Integration */
 

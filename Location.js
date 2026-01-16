@@ -1,19 +1,31 @@
 class Location {
 	static lastIndex = 0;
-	constructor(index, name, coords) {
+	constructor(index, name, coords, text) {
 		this.index = index;
 		this.name = name;
 		this.coords = coords;
+		this.text = text;
 		// this.actions = actions;
-		// this.text = text;
 		// this.npcs = npcs;
 		// this.dialogue = dialogue
-		// this.getCurrentCoords = this.getCurrentCoords.bind(this);
   	}
-  getCurrentName(){
-	return this.name;
-  }
+	getName(){
+		return this.name;
+  	}
+
+	getIndex(){
+		return this.index;
+  	}
+
+	getText(){
+		return this.text;
+  	}
   
+	getCoords(){
+		console.log("Coords = "+ this.coords);
+    	return this.coords;
+  	}
+	
 } // End Location Class
 
 /* This is a collection of all the locations which can be referenced from other classes */
@@ -56,7 +68,7 @@ const locations = [
 		text: "You are in the main entrance. You've just been let into the school when the receptionist tells you: \n \"We need your help, and quickly too.\" "
 		// "button text": ["Go to store", "Go to cave", "Fight dragon"],
 		// "button functions": [goStore, goCave, fightDragon],
-	},
+		},
 	{
 		index: 1,
 	 	name: "Front Office",
@@ -80,6 +92,7 @@ const locations = [
 		text: "You're attacked as you enter the library."
 		// "button text": ["Attack", "Dodge", "Run"],
 		// "button functions": [attack, dodge, goTown],
+		
 	}
 ]
 	// {
@@ -115,12 +128,12 @@ const locations = [
 
 const WHS = new Place('WHS');
 locations.forEach(data => {
-    const newPlace = new Location(data.index, data.name, data.coords);
+    const newPlace = new Location(data.index, data.name, data.coords, data.text);
     WHS.addLocation(newPlace);
 });
 
 console.log("WHS is created!");
-console.log("First one: " + JSON.stringify(WHS.locations[0].name));
+console.log("First one: " + WHS.locations[0].text);
 
 
 function goStore() {
