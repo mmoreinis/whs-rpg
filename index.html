@@ -1,54 +1,115 @@
-
 <!DOCTYPE html>
 <html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>WHS RPG</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body onload="showName()"> 
-<div id="gameBoard">
-<div id="profile">
-<div id="picture"></div>
-<p id="playerName"></p>
-</div>
-<div id="game">
-  <div id="stats">
-   <ul> 
-    <li><span>XP:</span><span id="xpText">0</span></li>
-    <li><span>Health:</span><span id="healthText">100</span></li>
-    <li><span>Gold:</span><span id="goldText">50</span></li>
-    <li><button onclick="showWeapons()">Weapons</button></li>
-    <li><button onclick="showObjects()">Objects</button></li>
-  <div id="infoBox" class="hidden">
-  This is the information that will be shown and hidden.
-</div>
-  </div>
-  <div id="controls">
-    <button id="button1">Go to store</button>
-    <button id="button2">Go to cave</button>
-    <button id="button3">Fight dragon</button>
-  </div>
-  
-  <div id="monsterStats">
-    <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
-    <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
-  </div>
-  <div id="text">Welcome to Westfield High. A dragon found treasure buried underneath the gymnasium long ago by the Woronoco people who once lived here long ago. While he's around the school's locked down and nobody can leave... that's why we need your help. Right now you're in the main entrance.</div>
-  
-</div>
-</div>
-<script src="Location.js" defer></script>
-<script src="Player.js" defer></script>
-<script src="melee.js" defer></script>
-<script src="script.js" defer></script>
-<script src="interface.js" defer></script>
-<script src="NPC.js" defer></script>
-<script src="Object.js" defer></script>
-
-
-</body>
-
+   <head>
+      <meta charset="UTF-8">
+      <title>WHS RPG</title>
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <div id="main" class="gameBoard">
+         <div id="game">
+            <div id="stats">
+               <ul>
+                  <li><span>XP:</span><span id="xpText">0</span></li>
+                  <li><span>Health:</span><span id="healthText">100</span></li>
+                  <li><span>Gold:</span><span id="goldText">50</span></li>
+                  <li><button onclick="showWeapons()">Weapons</button></li>
+                  <li><button onclick="showObjects()">Objects</button></li>
+               </ul>
+               <div id="infoBox" class="hidden">
+                  This is the information that will be shown and hidden.
+               </div>
+            </div>
+            <div id="controls">
+               <button id="button1">Go to store</button>
+               <button id="button2">Go to cave</button>
+               <button id="button3">Fight dragon</button>
+               <button id="goShow">Go</button>
+               <ul id="go"></ul>
+            </div>
+            <div id="monsterStats">
+               <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
+               <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
+            </div>
+            <div id="text">Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.</div>
+         </div>
+      </div>
+      </div> <!-- Main -->
+      <div id="player" class="gameBoard">
+         <div id="profile">
+            <img id="picture">
+            <p id="playerName"></p>
+         </div>
+         <div id="game">
+            <div id="stats">
+               <ul>
+               <li><span>XP:</span><span id="xpText">0</span></li>
+               <li><span>Health:</span><span id="healthText">100</span></li>
+               <li><span>Gold:</span><span id="goldText">50</span></li>
+               <li><button onclick="showWeapons()">Weapons</button></li>
+               <li><button onclick="showObjects()">Objects</button></li>
+               <li><button onclick="showPages()">Go</button></li>
+            </div>
+            <div id="playerPage">
+               <h1>Player Profile</h1>
+               <div id="imageName">
+                  <img id="playerPicture">
+                  <p id="playerPageName"></p>
+               </div>
+               <h2>Stats</h2>
+               <ul id="pageStats">
+               <li><span>XP:</span><span id="xpText">0</span></li>
+               <li><span>Health:</span><span id="healthText">100</span></li>
+               <li><span>Gold:</span><span id="goldText">50</span></li>
+            </div>
+         </div>
+      </div>
+      </div>
+      <div id="admin" class="gameBoard">
+         <div id="profile">
+            <img id="picture">
+            <p id="playerName"></p>
+         </div>
+         <div id="game">
+            <div id="stats">
+               <ul>
+               <li><span>XP:</span><span id="xpText">0</span></li>
+               <li><span>Health:</span><span id="healthText">100</span></li>
+               <li><span>Gold:</span><span id="goldText">50</span></li>
+               <li><button onclick="showWeapons()">Weapons</button></li>
+               <li><button onclick="showObjects()">Objects</button></li>
+               <li><button onclick="showPages()">Go</button></li>
+            </div>
+            <div id="monsterStats">
+               <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
+               <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
+            </div>
+            <h1>Admin Page</h1>
+            <h2><em>Locations</em></h2>
+            <form action="/action_page.php">
+               <label for="fname">Index:</label>
+               <input type="text" id="fname" name="fname" value=""><br>
+               <label for="lname">Name:</label>
+               <input type="text" id="lname" name="lname" value=""><br>
+               <label for="fname">Coordinates:</label>
+               <input type="text" id="fname" name="fname" value=""><br>
+               <label for="lname">Actions:</label>
+               <input type="text" id="lname" name="lname" value=""><br>
+               <label for="fname">Text:</label>
+               <textarea type="text" id="fname" name="fame" value="">
+               </textarea>
+               <label for="lname">NPC's:</label>
+               <input type="text" id="lname" name="lname" value=""><br>
+               <input type="submit" value="Done">
+            </form>
+         </div>
+      </div>
+      <script src="Location.js" defer></script>
+      <script src="Player.js" defer></script>
+      <script src="melee.js" defer></script>
+      <script src="script.js" defer></script>
+      <script src="interface.js" defer></script>
+      <script src="NPC.js" defer></script>
+      <script src="Object.js" defer></script>
+   </body>
 </html>

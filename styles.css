@@ -16,7 +16,8 @@ button:hover{
   width:200px;
   border-style:solid;
 }
-#gameBoard{
+
+#main{
   width: 1100px;
   margin:auto;
 }
@@ -30,14 +31,15 @@ button:hover{
   text-align:center;
 }
 
-#game, #navCross {
-  width: 600px;
-  max-height: 400px;
+#game,#navCross{
+  display:inline-block;
+}
+#game {
+  width: 800px;
   background-color: lightgray;
   color: white;
   margin: 0 auto;
   padding: 10px;
-  float:left;
 }
 
 #navCross {
@@ -185,11 +187,95 @@ cursor:pointer;
   left:110px;
   
 }
-
 #weapons li{
   padding: 0 .5em;
   background-color: white;
 }
 .hidden {
   display: none;
+}
+/* Player and Admin pages */
+#main, #player{
+  display:none;
+}
+#controls{
+  position:relative;
+}
+#go {
+  list-style-type:none;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+#go li {
+  border-radius:2px;
+  padding: 2px;
+  background-color: white;
+  display:block;
+  width:60px;
+  text-align: center;
+}
+
+#go li:hover {
+  background:gray;
+}
+
+#go li:active {
+  background:yellow;
+}
+
+#go li a {
+  color:black;
+}
+
+#go li a:hover {
+  color:yellow;
+}
+
+#go li a:active {
+  color:blue;
+}
+#go{
+  position:absolute;
+  left:260px;
+  display:none;
+  background-color: white;
+}
+#playerPage {
+  clear: both;
+  background-color: rgb(202, 177, 130);
+  border: 3px dashed rgb(148, 129, 85);;
+  margin-top: 20px;
+  text-align: center;
+  height:400px;
+}
+#playerPicture {
+  border: 3px dashed rgb(148, 129, 85);
+  width:200px;
+  margin-left:10px;
+  float:left;
+  border-radius:20px;
+}
+#playerPageName{
+  font-size:40px;
+   margin-left:10px;
+  float:left;
+}
+#imageName{
+  background-color: rgb(40, 48, 48);
+}
+#pageStats{
+  border: 3px dashed rgb(148, 129, 85);
+  
+}
+#fname, #lname{
+  margin-left:200px;
+  margin:15px;
+}
+
+label{
+  background-color:lightgray;
+  color:black;
+  border:2px black solid;
+  padding:4px;
 }
