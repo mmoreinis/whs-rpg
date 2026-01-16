@@ -59,6 +59,7 @@ class Place {
 } // End Place Class
 
 
+
 const locations = [
 	{
 		index: -1,
@@ -146,5 +147,6 @@ function goTown() {
 function goCave() {
     update(locations[2]);
 }
+
 
 
