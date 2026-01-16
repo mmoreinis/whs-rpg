@@ -19,7 +19,8 @@ class Player {
 
   setLocation(index){
     this.currentLocation = index;
-    console.log("player is at " + locations[index].name);
+    let newLocation = WHS.locations.find(location => location.index === index);
+    console.log("player is at " + newLocation);
   }
 
 
@@ -31,8 +32,9 @@ class Player {
     return this.currentLocation;
   }
 
-  getCurrentCoords(){
-    	return locations[this.currentLocation].coords.toString();
+  getCurrentLocationObject(){
+    let currentLocationObject = WHS.locations.find(location => location.index === this.currentLocation);
+    return currentLocationObject;
   }
 
    setWeaponsLoss(){

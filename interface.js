@@ -23,6 +23,7 @@ const goShow = document.getElementById("goShow");
 
 setUp();
 function setUp() {
+   update(WHS.locations[0]);
    goButtons();
    showPages();
    createNavCross();
@@ -70,9 +71,12 @@ function createNavCross() {
 }
 
 function getNavLocations() {
+   // let locationNow = player.getCurrentLocation();
+   // let locationMatch = WHS.locations.find(location => location.index === locationNow);
+   // console.log("coords are " + WHS.locations[locationMatch].getCoords());
    let locationNow = player.currentLocation;
-   let coordsNow = WHS.locations[locationNow].coords;
-   console.log("coords are " + coordsNow);
+	let coordsNow = WHS.locations[locationNow].coords;
+	console.log("coords are " + coordsNow);
    let proximals = [
       [0, 1],
       [1, 0],
@@ -197,13 +201,6 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location) {
-    monsterStats.style.display = "none";
-	button1.innerText = location["button text"][0];
-	button2.innerText = location["button text"][1];
-	button3.innerText = location["button text"][2];
-	button1.onclick = location["button functions"][0];
-	button2.onclick = location["button functions"][1];
-	button3.onclick = location["button functions"][2];
-    text.innerText = location.text;   
-	player.setLocation(locations.indexOf(location)); 
+   text.innerText = location.getText();   
+	player.setLocation(location); 
 }

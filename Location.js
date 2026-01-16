@@ -1,6 +1,6 @@
 class Location {
 	static lastIndex = 0;
-	constructor(index, name, coords) {
+	constructor(index, name, coords, text) {
 		this.index = index;
 		this.name = name;
 		this.coords = coords;
@@ -8,12 +8,18 @@ class Location {
 		// this.actions = actions;
 		// this.npcs = npcs;
 		// this.dialogue = dialogue
-		// this.getCurrentCoords = this.getCurrentCoords.bind(this);
   	}
-  getCurrentName(){
+  getName(){
 	return this.name;
   }
+
+  getText(){
+	return this.text;
+  }
   
+    getCoords(){
+    	return this.coords;
+  }
 } // End Location Class
 
 /* This is a collection of all the locations which can be referenced from other classes */
@@ -115,12 +121,12 @@ const locations = [
 
 const WHS = new Place('WHS');
 locations.forEach(data => {
-    const newPlace = new Location(data.index, data.name, data.coords);
+    const newPlace = new Location(data.index, data.name, data.coords, data.text);
     WHS.addLocation(newPlace);
 });
 
 console.log("WHS is created!");
-console.log("First one: " + JSON.stringify(WHS.locations[0].name));
+console.log("First one: " + WHS.locations[0].text);
 
 
 function goStore() {
