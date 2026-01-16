@@ -54,6 +54,7 @@
                <h1>Player Profile</h1>
                <div id="imageName">
                   <img id="playerPicture">
+               
                   <p id="playerPageName"></p>
                </div>
                <h2>Stats</h2>
@@ -87,20 +88,25 @@
             <h1>Admin Page</h1>
             <h2><em>Locations</em></h2>
             <form action="/action_page.php">
-               <label for="fname">Index:</label>
-               <input type="text" id="fname" name="fname" value=""><br>
-               <label for="lname">Name:</label>
-               <input type="text" id="lname" name="lname" value=""><br>
-               <label for="fname">Coordinates:</label>
-               <input type="text" id="fname" name="fname" value=""><br>
-               <label for="lname">Actions:</label>
-               <input type="text" id="lname" name="lname" value=""><br>
+               <label for="fname">Index:</label><br>
+               <input type="text" id="box" name="fname" value=""><br>
+               <label for="lname">Name:</label><br>
+               <input type="text" id="box" name="lname" value=""><br>
+               <label for="fname">Coordinates:</label><br>
+               <input type="text" id="box" name="fname" value=""><br>
+              
+               <label id="actions" for="lname">Actions:</label>
+               <br>
+               <textarea type="text" id="textarea" name="lname" value=""></textarea>
+               <br>
                <label for="fname">Text:</label>
-               <textarea type="text" id="fname" name="fame" value="">
-               </textarea>
+               <br>
+               <textarea type="text" id="textarea" name="fame" value=""></textarea>
+               <br>
                <label for="lname">NPC's:</label>
-               <input type="text" id="lname" name="lname" value=""><br>
-               <input type="submit" value="Done">
+               <br>
+               <textarea type="text" id="textarea" name="lname" value=""></textarea><br>
+               <input id="done" type="submit" value="Done">
             </form>
          </div>
       </div>
