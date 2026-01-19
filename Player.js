@@ -15,6 +15,7 @@ class Player {
     this.locations = [0];
     this.currentLocation = -1;
 	this.setLocation = this.setLocation.bind(this);
+    
   }
 
   setLocation(index){

@@ -23,7 +23,7 @@ const goShow = document.getElementById("goShow");
 
 setUp();
 function setUp() {
-   update(WHS.locations[0]);
+   update(WHS.locations[0].index);
    goButtons();
    showPages();
    createNavCross();
@@ -58,7 +58,7 @@ function createNavCross() {
 		navBox.innerHTML = buttonLabels[i];
 		if(i > 0 && possibles[i-1] > 0){
 			navBox.addEventListener("click", (event) => {
-  			update(WHS.Locations[possibles[i-1]]);
+  			update(possibles[i-1]);
 		});
 		navBox.classList.add('clickable');
 		}
@@ -72,8 +72,7 @@ function createNavCross() {
 
 function getNavLocations() {
    let locationNow = player.getCurrentLocation(); // this is location.index
-   //let locationMatch = WHS.locations.find(location => location.index === locationNow); // this is a location object
-   let locationMatch = WHS.locations.find(location => location.index === -1); // this is a location object
+   let locationMatch = WHS.locations.find(location => location.index === locationNow); // this is a location object
    console.log("Location match object = " + locationMatch.name);
 	let coordsNow = locationMatch.getCoords();
 	console.log("coords are " + coordsNow);
@@ -254,7 +253,8 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function update(location) {
+function update(locationIndex) {
+   let location = WHS.locations.find(loc => loc.index === locationIndex);
    text.innerText = location.getText();   
-	player.setLocation(location); 
+	player.setLocation(locationIndex); 
 }
