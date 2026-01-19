@@ -23,9 +23,9 @@ const goShow = document.getElementById("goShow");
 
 setUp();
 function setUp() {
-   update(WHS.locations[0].index);
    goButtons();
    showPages();
+   update(WHS.locations[0].index);
    createNavCross();
 }
 
@@ -43,13 +43,16 @@ function goButtons() {
 	  newItem.appendChild(newLink);
       go.appendChild(newItem);
    }
+   /* Create NavCross Container */
+   let navCross = document.createElement("div");
+	navCross.id = "navCross";
+	board.appendChild(navCross);
 }
 
 function createNavCross() {
-	let possibles = getNavLocations();
-	let navCross = document.createElement("div");
-	navCross.id = "navCross";
-	board.appendChild(navCross);
+	let navCross = document.getElementById("navCross");
+   navCross.innerHTML = ""; // clear previous buttons
+   let possibles = getNavLocations();
 	let navBox;	
 	buttonLabels = ["Navigation", "forward", "right", "left", "back"];
 	for(let i = 0; i < 5; i++){
@@ -65,17 +68,12 @@ function createNavCross() {
 	navCross.appendChild(navBox);
 	}
 	navButtons = [];
-	console.log(WHS.getName(0))
-	console.log(player.getCurrentLocation());
-	console.log(player.getCurrentCoords());
 }
 
 function getNavLocations() {
    let locationNow = player.getCurrentLocation(); // this is location.index
    let locationMatch = WHS.locations.find(location => location.index === locationNow); // this is a location object
-   console.log("Location match object = " + locationMatch.name);
 	let coordsNow = locationMatch.getCoords();
-	console.log("coords are " + coordsNow);
    let proximals = [
       [0, 1],
       [1, 0],
@@ -88,7 +86,6 @@ function getNavLocations() {
    for (let i = 0; i < proximals.length; i++) {
       testX = coordsNow[0] + proximals[i][0];
       testY = coordsNow[1] + proximals[i][1];
-      console.log("test next location with coordinates = " + testX + "," + testY);
       if (testLocation(testX, testY) != -1) {
          possibles[i] = testLocation(testX, testY);
          console.log("possibles: " + possibles);
@@ -99,7 +96,6 @@ function getNavLocations() {
 
 function testLocation(x,y){
 	for(let i = 0; i < WHS.locations.length; i++){
-		console.log("next location: " + WHS.locations[i].coords);
 		if(WHS.locations[i].coords[0] == x && WHS.locations[i].coords[1] == y){
 			console.log("match found: " + WHS.locations[i].coords);
 			return i;

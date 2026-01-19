@@ -21,7 +21,8 @@ class Player {
   setLocation(index){
     this.currentLocation = index;
     let newLocation = WHS.locations.find(location => location.index === index);
-    console.log("player is at " + newLocation);
+    console.log("player is at " + newLocation.getCoords());
+    createNavCross()
   }
 
 

@@ -22,7 +22,6 @@ class Location {
   	}
   
 	getCoords(){
-		console.log("Coords = "+ this.coords);
     	return this.coords;
   	}
 	
